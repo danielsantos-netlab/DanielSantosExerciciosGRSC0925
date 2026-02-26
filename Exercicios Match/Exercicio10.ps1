@@ -1,8 +1,8 @@
 ﻿$jogador1 = Read-Host "Jogador 1 (pedra/papel/tesoura)"
 $jogador2 = Read-Host "Jogador 2 (pedra/papel/tesoura)"
 
-$j1 = $jogador1.Trim().ToLower()
-$j2 = $jogador2.Trim().ToLower()
+$j1 = $jogador1
+$j2 = $jogador2
 
 $saida = if ($j1 -eq $j2) {
     "Empate"

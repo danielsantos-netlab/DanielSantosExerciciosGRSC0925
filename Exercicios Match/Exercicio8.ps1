@@ -2,7 +2,7 @@
 [double]$num1 = Read-Host "Número 1"
 [double]$num2 = Read-Host "Número 2"
 
-$saida = switch ($operacao.Trim().ToLower()) {
+$saida = switch ($operacao) {
     "soma"       { $num1 + $num2 }
     "subtrai"    { $num1 - $num2 }
     "multiplica" { $num1 * $num2 }

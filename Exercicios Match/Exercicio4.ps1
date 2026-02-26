@@ -1,23 +1,27 @@
 ﻿$entrada = Read-Host "Digite"
 
 
-$saida = if ($entrada -match '^\[.*\]$') {
-    "Lista"
+if ($entrada.StartsWith("[") -and $entrada.EndsWith("]")) {
+    $saida = "Lista"
+}
 
-} elseif ($entrada -match '^-?\d+$') {
-    "Número inteiro"
+elseif ([int]::TryParse($entrada, [ref]$null)) {
+    $saida = "Número inteiro"
+}
+# TryParse tenta converter para inteiro, se conseguir é inteiro
+# [ref] guarda resultado em null (nada), pq não precisamos dele
 
-} elseif ($entrada -match '^-?\d+[\.,]\d+$') {
-    "Número decimal"
+elseif ([double]::TryParse($entrada, [ref]$null)) {
+    $saida = "Número decimal"
+}
+# double - [int] com casas décimais
 
-} elseif ($entrada -match '^\d+$') {
-    "String numérica"
+elseif ($entrada -match "[a-zA-Z]") {
+    $saida = "String textual"
+}
 
-} elseif ($entrada -match '[a-zA-Z]') {
-    "String textual"
-
-} else {
-    "Tipo desconhecido"
+else {
+    $saida = "Tipo desconhecido"
 }
 
 Write-Output $saida

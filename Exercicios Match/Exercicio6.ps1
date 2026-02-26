@@ -1,7 +1,7 @@
 ﻿$status = Read-Host "Status do servidor (ok/erro)"
 [int]$tempo_resposta = Read-Host "Tempo de resposta"
 
-$saida = switch ($status.Trim().ToLower()) {
+$saida = switch ($status) {
     "ok" {
         if ($tempo_resposta -gt 200) { "Servidor lento" }
         else { "Servidor ativo" }

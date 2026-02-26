@@ -1,10 +1,11 @@
 ﻿$metodo = Read-Host "Método (GET/POST)"
 $conteudo = Read-Host "Conteúdo (pressione Enter para deixar vazio)"
 
-$saida = switch ($metodo.Trim().ToUpper()) {
+$saida = switch ($metodo) {
     "GET"  { "Requisição GET recebida" }
     "POST" {
         if ([string]::IsNullOrWhiteSpace($conteudo)) {
+        # IsNullOrWhiteSpace - Verifica se o conteudo está vazio
             "Requisição POST sem dados"
         } else {
             "Requisição POST com dados válidos"

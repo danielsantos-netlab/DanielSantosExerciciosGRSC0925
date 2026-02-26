@@ -1,6 +1,6 @@
 ﻿$mensagem = Read-Host "Entrada"
 
-$saida = switch -Regex ($mensagem.Trim().ToLower()) {
+$saida = switch -Regex ($mensagem) {
     "^(olá|bom dia)" { "Saudação"; break }
     "\?$"            { "Pergunta"; break }
     "(tchau|adeus)"  { "Despedida"; break }
